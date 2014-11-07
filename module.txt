@@ -1,0 +1,13 @@
+{
+    "id" : "JoshariasSurvival",
+    "version" : "0.1.0",
+    "author" : "Josharias",
+    "displayName" : "Josharias Survival",
+    "description" : "Survival with an emphasis on technology",
+    "dependencies" :
+    [
+        {"id": "TerraTech", "minVersion": "0.1.0"}
+    ],
+    "isGameplay" : "true",
+    "defaultWorldGenerator" : "Core:FacetedPerlin"
+}
