@@ -1,0 +1,6 @@
+{
+    "displayName": "Densitanium",
+    "categories" : ["mineral","mineral2","mineral3"],
+    "hardness" : 4000,
+    "mass" : 1000
+}
