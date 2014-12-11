@@ -41,10 +41,6 @@ public class PlayerStartingInventorySystem extends BaseComponentSystem {
     public void onPlayerSpawnedEvent(OnPlayerSpawnedEvent event, EntityRef player) {
         BlockItemFactory blockFactory = new BlockItemFactory(entityManager);
 
-        for (int i = 0; i < inventoryManager.getNumSlots(player); i++) {
-            inventoryManager.removeItem(player, EntityRef.NULL, inventoryManager.getItemInSlot(player, i), true);
-        }
-
         inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("ManualLabor:AssemblyTable"), 1));
 
     }
