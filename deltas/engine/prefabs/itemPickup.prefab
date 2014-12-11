@@ -1,0 +1,11 @@
+{
+  "RigidBody": {
+    "mass": 10,
+    "collisionGroup": "engine:debris",
+    "collidesWith": [
+      "engine:world",
+      "engine:debris",
+      "engine:sensor"
+    ]
+  }
+}
