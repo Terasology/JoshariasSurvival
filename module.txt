@@ -6,7 +6,8 @@
     "description" : "Survival with an emphasis on technology",
     "dependencies" :
     [
-        {"id": "ManualLabor", "minVersion": "0.1.0"}
+        {"id": "ManualLabor", "minVersion": "0.1.0"},
+        {"id": "IRLCorp", "minVersion": "0.1.0"}
     ],
     "isGameplay" : "true",
     "defaultWorldGenerator" : "Core:FacetedPerlin"
