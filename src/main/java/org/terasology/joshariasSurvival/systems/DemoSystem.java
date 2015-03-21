@@ -26,7 +26,7 @@ import org.terasology.logic.inventory.InventoryComponent;
 import org.terasology.logic.inventory.InventoryManager;
 import org.terasology.logic.location.LocationComponent;
 import org.terasology.machines.ExtendedInventoryManager;
-import org.terasology.math.Vector3i;
+import org.terasology.math.geom.Vector3i;
 import org.terasology.network.ClientComponent;
 import org.terasology.registry.In;
 import org.terasology.world.BlockEntityRegistry;
@@ -89,17 +89,19 @@ public class DemoSystem extends BaseComponentSystem {
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
                     ExtendedInventoryManager.createItem(entityManager, "ManualLabor:WoodenBucket", 1)
             ));
+
+            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Campfire"), 1));
         }
 
 
         if (pack == null || pack.equalsIgnoreCase("IRLCorp")) {
-            /*inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Windmill"), 1));
+            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Windmill"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
                     ExtendedInventoryManager.createItem(entityManager, "WindmillSail", 1),
                     blockFactory.newInstance(blockManager.getBlockFamily("WoodenAxle"), 32)
             ));
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("WoodenAxle"), 1));
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("WoodenGearBox"), 1));*/
+            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("WoodenGearBox"), 1));
 
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Axle"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("GearBox"), 1));
@@ -115,9 +117,15 @@ public class DemoSystem extends BaseComponentSystem {
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("FrictionHeater"), 1));
 
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("ConveyorBelt"), 1));
+            inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
+                    blockFactory.newInstance(blockManager.getBlockFamily("ConveyorBelt"), 32)
+            ));
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("ItemExtractor"), 1));
 
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("IronFluidPump"), 1));
+            inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
+                    blockFactory.newInstance(blockManager.getBlockFamily("IronFluidPipe"), 32)
+            ));
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("IronFluidPipe"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("FluidTank"), 1));
         }
