@@ -1,0 +1,17 @@
+{
+  "DisplayName": {
+    "name": "Blueberry"
+  },
+  "Item": {
+    "icon": "PlantPack:Items.BlueBerry",
+    "renderWithIcon": true,
+    "stackId": "Blueberry",
+    "consumedOnUse": true
+  },
+  "Food": {
+    "filling": 10
+  },
+  "Drink": {
+    "filling": 10
+  }
+}

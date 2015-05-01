@@ -1,0 +1,9 @@
+{
+  "PlantProduceCreation": {
+    "producePrefab": "Blueberry"
+  },
+  "UnGrowPlantOnHarvest": {},
+  "PlantDefinition": {
+    "seedPrefab": "BlueberrySeed"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "parent": "engine:iconItem",
+  "DisplayName": {
+    "name": "Blueberry Seed"
+  },
+  "Item": {
+    "icon": "SimpleFarming:SimpleFarming.berryseed",
+    "renderWithIcon": true,
+    "stackId": "BlueberrySeed"
+  },
+  "PlantDefinition": {
+    "growthStages": {
+      "SimpleFarming:SmallBerryBush": {
+        "maxRandom": 300000,
+        "fixed": 300000
+      },
+      "SimpleFarming:BerryBush": {
+        "maxRandom": 300000,
+        "fixed": 300000
+      },
+      "SimpleFarming:TestberryBush": {
+        "maxRandom": 300000,
+        "fixed": 300000
+      },
+      "JoshariasSurvival:BlueberryBushFull": {
+        "maxRandom": 600000,
+        "fixed": 300000
+      }
+    }
+  },
+  "TintOverlayIcon": {
+    "texture": {
+      "SimpleFarming:SimpleFarming.berryseed": {
+        "hue": 240
+      }
+    }
+  }
+}
