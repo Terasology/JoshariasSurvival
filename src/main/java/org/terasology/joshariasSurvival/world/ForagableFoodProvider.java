@@ -56,7 +56,8 @@ public class ForagableFoodProvider extends SurfaceObjectProvider<Biome, Foragabl
     private ForagableFoodDensityConfiguration configuration = new ForagableFoodDensityConfiguration();
 
     private Map<ForagableFoodType, Float> typeProbs = ImmutableMap.of(
-            ForagableFoodType.BLUEBERRY, 0.005f);
+            ForagableFoodType.BLUEBERRY, 0.005f,
+            ForagableFoodType.ROCK, 0.5f);
 
     private Map<Biome, Float> biomeProbs = ImmutableMap.<Biome, Float>builder()
             .put(CoreBiome.FOREST, 0.3f)

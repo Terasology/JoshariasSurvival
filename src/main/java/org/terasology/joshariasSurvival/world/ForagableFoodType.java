@@ -17,5 +17,6 @@
 package org.terasology.joshariasSurvival.world;
 
 public enum ForagableFoodType {
-    BLUEBERRY
+    BLUEBERRY,
+    ROCK
 }

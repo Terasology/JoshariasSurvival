@@ -41,6 +41,8 @@ public class ForagableFoodRasterizer implements WorldRasterizerPlugin {
 
         foragableFood.put(ForagableFoodType.BLUEBERRY, ImmutableList.<Block>of(
                 blockManager.getBlock("JoshariasSurvival:BlueberryBushFull")));
+        foragableFood.put(ForagableFoodType.ROCK, ImmutableList.<Block>of(
+                blockManager.getBlock("JoshariasSurvival:Rock")));
 
     }
 

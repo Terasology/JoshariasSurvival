@@ -1,0 +1,10 @@
+{
+  "displayName": "Rock",
+  "categories": [],
+  "hardness": 1,
+  "shape": "Rock",
+  "attachmentAllowed": false,
+  "supportRequired": true,
+  "penetrable": true,
+  "shadowCasting": false
+}
