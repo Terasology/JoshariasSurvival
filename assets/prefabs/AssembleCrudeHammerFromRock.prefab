@@ -1,0 +1,20 @@
+{
+  "ProcessDefinition": {
+    "processType": "ManualLabor:Assembling"
+  },
+  "ItemPrefabInput": {
+    "itemCounts": {
+      "ManualLabor:Stick": 1
+    }
+  },
+  "BlockFamilyInput": {
+    "blockCounts": {
+      "JoshariasSurvival:Rock": 1
+    }
+  },
+  "ItemPrefabOutput": {
+    "itemCounts": {
+      "ManualLabor:CrudeHammer": 1
+    }
+  }
+}
