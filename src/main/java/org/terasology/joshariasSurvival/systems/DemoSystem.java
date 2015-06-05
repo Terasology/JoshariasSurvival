@@ -107,7 +107,7 @@ public class DemoSystem extends BaseComponentSystem {
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("GearBox"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Engine"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Chunks.SubstanceMatters:Coal", 99),
+                    ExtendedInventoryManager.createItem(entityManager, "SubstanceMatters:MaterialItem#ManualLabor:Chunks|SubstanceMatters:Coal", 99),
                     blockFactory.newInstance(blockManager.getBlockFamily("Axle"), 32)
             ));
 
@@ -158,7 +158,7 @@ public class DemoSystem extends BaseComponentSystem {
             BlockItemComponent blockItemComponent = item.getComponent(BlockItemComponent.class);
             if (blockItemComponent != null) {
                 Vector3i pos = new Vector3i(characterPos.x + itemsPlaced * 2 + 2, characterPos.y, characterPos.z);
-                if (blockItemComponent.blockFamily.getURI().equals(new BlockUri("Core", "Chest"))) {
+                if (blockItemComponent.blockFamily.getURI().equals(new BlockUri("Core:Chest"))) {
                     pos = new Vector3i(pos.x - 2, pos.y, pos.z + 2);
                     supplyChestsPlaced++;
                 } else {

@@ -3,7 +3,7 @@
     "name": "Blueberry"
   },
   "Item": {
-    "icon": "PlantPack:Items.BlueBerry",
+    "icon": "PlantPack:Items#BlueBerry",
     "renderWithIcon": true,
     "stackId": "Blueberry",
     "consumedOnUse": true

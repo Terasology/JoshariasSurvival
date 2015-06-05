@@ -2,7 +2,7 @@
   "displayName": "Rock",
   "categories": [],
   "hardness": 1,
-  "shape": "Rock",
+  "shape": "rock",
   "attachmentAllowed": false,
   "supportRequired": true,
   "penetrable": true,

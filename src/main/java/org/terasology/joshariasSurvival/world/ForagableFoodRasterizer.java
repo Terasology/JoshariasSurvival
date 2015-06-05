@@ -32,24 +32,24 @@ import java.util.Map;
 
 @RegisterPlugin
 public class ForagableFoodRasterizer implements WorldRasterizerPlugin {
-
     private final Map<ForagableFoodType, List<Block>> foragableFood = Maps.newEnumMap(ForagableFoodType.class);
+
+    private BlockManager blockManager;
 
     @Override
     public void initialize() {
-        BlockManager blockManager = CoreRegistry.get(BlockManager.class);
+        blockManager = CoreRegistry.get(BlockManager.class);
 
         foragableFood.put(ForagableFoodType.BLUEBERRY, ImmutableList.<Block>of(
                 blockManager.getBlock("JoshariasSurvival:BlueberryBushFull")));
         foragableFood.put(ForagableFoodType.ROCK, ImmutableList.<Block>of(
-                blockManager.getBlock("JoshariasSurvival:Rock")));
-
+                blockManager.getBlockFamily("JoshariasSurvival:Rock").getArchetypeBlock()));
     }
 
     @Override
     public void generateChunk(CoreChunk chunk, Region chunkRegion) {
         ForagableFoodFacet facet = chunkRegion.getFacet(ForagableFoodFacet.class);
-        Block air = BlockManager.getAir();
+        Block air = blockManager.getBlock(BlockManager.AIR_ID);
 
         WhiteNoise noise = new WhiteNoise(chunk.getPosition().hashCode());
 

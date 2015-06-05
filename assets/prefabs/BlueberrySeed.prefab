@@ -4,7 +4,7 @@
     "name": "Blueberry Seed"
   },
   "Item": {
-    "icon": "SimpleFarming:SimpleFarming.berryseed",
+    "icon": "SimpleFarming:SimpleFarming#berryseed",
     "renderWithIcon": true,
     "stackId": "BlueberrySeed"
   },
@@ -30,7 +30,7 @@
   },
   "TintOverlayIcon": {
     "texture": {
-      "SimpleFarming:SimpleFarming.berryseed": {
+      "SimpleFarming:SimpleFarming#berryseed": {
         "hue": 240
       }
     }
