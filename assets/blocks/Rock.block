@@ -6,5 +6,6 @@
   "attachmentAllowed": false,
   "supportRequired": true,
   "penetrable": true,
-  "shadowCasting": false
+  "shadowCasting": false,
+  "rotation": "symmetric"
 }

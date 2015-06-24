@@ -3,5 +3,6 @@
   "displayName": "Blueberry Bush",
   "entity": {
     "prefab": "BlueberryBushFull"
-  }
+  },
+  "tile": "blueberrybushfull"
 }

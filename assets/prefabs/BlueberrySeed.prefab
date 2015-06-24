@@ -9,8 +9,9 @@
     "stackId": "BlueberrySeed"
   },
   "PlantDefinition": {
+    "plantName": "Blueberry Bush",
     "growthStages": {
-      "SimpleFarming:SmallBerryBush": {
+      "SimpleFarming:BerryBush:Engine:Halfblock": {
         "maxRandom": 300000,
         "fixed": 300000
       },
@@ -18,7 +19,7 @@
         "maxRandom": 300000,
         "fixed": 300000
       },
-      "SimpleFarming:TestberryBush": {
+      "SimpleFarming:MatureBerryBush": {
         "maxRandom": 300000,
         "fixed": 300000
       },
