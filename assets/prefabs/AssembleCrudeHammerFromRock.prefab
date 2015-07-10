@@ -1,6 +1,6 @@
 {
   "ProcessDefinition": {
-    "processType": "ManualLabor:Assembling"
+    "processType": "ManualLabor:CrudeAssembling"
   },
   "ItemPrefabInput": {
     "itemCounts": {

@@ -40,9 +40,6 @@ public class PlayerStartingInventorySystem extends BaseComponentSystem {
     @ReceiveEvent(components = InventoryComponent.class)
     public void onPlayerSpawnedEvent(OnPlayerSpawnedEvent event, EntityRef player) {
         BlockItemFactory blockFactory = new BlockItemFactory(entityManager);
-
-        inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("ManualLabor:AssemblyTable"), 1));
-
     }
 
 }
