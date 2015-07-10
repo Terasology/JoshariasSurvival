@@ -11,7 +11,10 @@
         {"id": "Hunger", "minVersion": "0.1.0"},
         {"id": "SimpleFarming", "minVersion": "0.1.0"},
         {"id": "PlantPack", "minVersion": "0.1.0"},
-        {"id": "WorldlyTooltip", "minVersion": "0.1.0"}
+        {"id": "WorldlyTooltip", "minVersion": "0.1.0"},
+        {"id": "EventualSkills", "minVersion": "0.1.0"},
+        {"id": "ManualLaborEventualSkills", "minVersion": "0.1.0"},
+        {"id": "InGameHelp", "minVersion": "0.1.0"}
     ],
     "isGameplay" : "true",
     "defaultWorldGenerator" : "Core:FacetedPerlin"
