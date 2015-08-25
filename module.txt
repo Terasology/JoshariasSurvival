@@ -14,7 +14,8 @@
         {"id": "WorldlyTooltip", "minVersion": "0.1.0"},
         {"id": "EventualSkills", "minVersion": "0.1.0"},
         {"id": "ManualLaborEventualSkills", "minVersion": "0.1.0"},
-        {"id": "InGameHelp", "minVersion": "0.1.0"}
+        {"id": "InGameHelp", "minVersion": "0.1.0"},
+        {"id": "WorkstationInGameHelp", "minVersion": "0.1.0"}
     ],
     "isGameplay" : "true",
     "defaultWorldGenerator" : "Core:FacetedPerlin"
