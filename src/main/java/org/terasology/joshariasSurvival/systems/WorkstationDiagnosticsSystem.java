@@ -29,6 +29,7 @@ import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.inGameHelp.components.ItemHelpComponent;
 import org.terasology.logic.console.commandSystem.annotations.Command;
+import org.terasology.network.NetworkSystem;
 import org.terasology.registry.In;
 import org.terasology.workstation.component.WorkstationComponent;
 import org.terasology.workstation.process.DescribeProcess;
@@ -48,9 +49,13 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
 
     @In
     WorkstationRegistry workstationRegistry;
+    @In
+    private NetworkSystem networkSystem;
 
     @Command(shortDescription = "")
-    public String logItemsWithMissingAssembly() {
+    public String logItemsWithoutOutputProcess() {
+        logger.info("--- logging items without an output process");
+
         List<String> processTypes = Assets.list(Prefab.class).stream()
                 .map(x -> Assets.get(x, Prefab.class).get())
                 .filter(x -> x.hasComponent(WorkstationComponent.class))
@@ -83,17 +88,23 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
             knownInputs.add(helpItem);
         }
 
+        int count = 0;
         for (ResourceUrn input : knownInputs) {
             if (!knownOutputs.contains(input)) {
-                logger.info(input.toString() + " does not have a known process to assemble");
+                logger.info(input.toString() + " does not have a known output process");
+                count++;
             }
         }
+
+        logger.info("--- finished logging items without an output process (" + count + " items)");
 
         return "Logged as info all items without assembly processes defined";
     }
 
     @Command(shortDescription = "")
     public String logItemCraftingComplexity() {
+        logger.info("--- logging item crafting complexity");
+
         List<String> processTypes = Assets.list(Prefab.class).stream()
                 .map(x -> Assets.get(x, Prefab.class).get())
                 .filter(x -> x.hasComponent(WorkstationComponent.class))
@@ -153,6 +164,8 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
             logger.info(entry.getKey().toString() + " MaxDepth=" + entry.getValue() + " MaxComplexity=" + maxComplexityMap.get(entry.getKey()));
         }
 
+        logger.info("--- finished logging item crafting complexity");
+
         return "Logged as info all item crafting depth";
     }
 
@@ -192,4 +205,13 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
     }
 
 
+    @Override
+    public void postBegin() {
+        super.postBegin();
+        // only do this in headless mode to avoid bothering too many
+        if (networkSystem.getMode().isAuthority() && !networkSystem.getMode().hasLocalClient()) {
+            logItemsWithoutOutputProcess();
+            logItemCraftingComplexity();
+        }
+    }
 }
