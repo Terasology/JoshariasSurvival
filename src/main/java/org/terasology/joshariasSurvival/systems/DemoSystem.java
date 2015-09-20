@@ -122,11 +122,11 @@ public class DemoSystem extends BaseComponentSystem {
             ));
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("ItemExtractor"), 1));
 
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("IronFluidPump"), 1));
+            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("FluidPump"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
-                    blockFactory.newInstance(blockManager.getBlockFamily("IronFluidPipe"), 32)
+                    blockFactory.newInstance(blockManager.getBlockFamily("FluidPipe"), 32)
             ));
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("IronFluidPipe"), 1));
+            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("FluidPipe"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("FluidTank"), 1));
         }
 
