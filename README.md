@@ -1,6 +1,8 @@
 JoshariasSurvival
 =================
 
-[![Stories in Ready](https://badge.waffle.io/Terasology/JoshariasSurvival.png?label=ready&title=Ready)](http://waffle.io/Terasology/JoshariasSurvival)
-
 Survival a la Josharias
+
+##Fetch all with gradle
+
+```gradlew fetchModuleCustomOreGen fetchModuleOreGeneration fetchModuleStructuralResources fetchModuleFluid fetchModuleWorkstation fetchModuleItemRendering fetchModuleMachines fetchModuleDurability fetchModuleSubstanceMatters fetchModuleManualLabor fetchModuleIRLCorp fetchModuleHunger fetchModuleInGameHelp fetchModuleWorkstationInGameHelp fetchModuleMultiBlock fetchModuleWorldlyTooltip fetchModuleEventualSkills fetchModuleManualLaborEventualSkills fetchModulePlantPack fetchModuleSimpleFarming fetchModuleJoshariasSurvival```
