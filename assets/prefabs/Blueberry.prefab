@@ -5,7 +5,6 @@
   },
   "Item": {
     "icon": "PlantPack:Items#BlueBerry",
-    "renderWithIcon": true,
     "stackId": "Blueberry",
     "consumedOnUse": true
   },
