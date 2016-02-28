@@ -22,7 +22,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.terasology.asset.Assets;
+import org.terasology.utilities.Assets;
 import org.terasology.assets.ResourceUrn;
 import org.terasology.entitySystem.prefab.Prefab;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
