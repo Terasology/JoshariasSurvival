@@ -1,21 +1,22 @@
 {
     "id" : "JoshariasSurvival",
-    "version" : "0.1.1-SNAPSHOT",
+    "version" : "1.0.0-SNAPSHOT",
     "author" : "Josharias",
     "displayName" : "Josharias Survival",
     "description" : "Survival with an emphasis on technology",
     "dependencies" :
     [
-        {"id": "ManualLabor", "minVersion": "0.1.0"},
-        {"id": "IRLCorp", "minVersion": "0.2.0"},
+        {"id": "ManualLabor", "minVersion": "1.0.0"},
+        {"id": "IRLCorp", "minVersion": "1.0.0"},
         {"id": "Hunger", "minVersion": "0.1.0"},
         {"id": "SimpleFarming", "minVersion": "0.1.0"},
         {"id": "PlantPack", "minVersion": "0.1.0"},
         {"id": "WorldlyTooltip", "minVersion": "0.1.0"},
-        {"id": "EventualSkills", "minVersion": "0.1.0"},
-        {"id": "ManualLaborEventualSkills", "minVersion": "0.1.0"},
+        {"id": "EventualSkills", "minVersion": "1.0.0"},
+        {"id": "ManualLaborEventualSkills", "minVersion": "1.0.0"},
         {"id": "InGameHelp", "minVersion": "0.1.0"},
-        {"id": "WorkstationInGameHelp", "minVersion": "0.1.0"}
+        {"id": "WorkstationInGameHelp", "minVersion": "1.0.0"},
+        {"id": "Caves", "minVersion": "0.2.0"}
     ],
     "isGameplay" : "true",
     "defaultWorldGenerator" : "Core:FacetedPerlin"
