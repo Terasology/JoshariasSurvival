@@ -13,5 +13,8 @@
   },
   "Drink": {
     "filling": 10
+  },
+  "FirstPersonHeldItemTransform": {
+    "scale": 0.25
   }
 }

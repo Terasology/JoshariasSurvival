@@ -78,7 +78,7 @@ public class DemoSystem extends BaseComponentSystem {
 
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("ToolAssemblyTable"), 1));
 
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Fireplace"), 1));
+            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Firebox"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
                     ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Plank", 32)
             ));

@@ -34,5 +34,8 @@
         "hue": 240
       }
     }
+  },
+  "FirstPersonHeldItemTransform": {
+    "scale": 0.25
   }
 }
