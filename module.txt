@@ -8,15 +8,17 @@
     [
         {"id": "ManualLabor", "minVersion": "1.0.0"},
         {"id": "IRLCorp", "minVersion": "1.0.0"},
-        {"id": "Hunger", "minVersion": "0.1.0"},
-        {"id": "SimpleFarming", "minVersion": "0.1.0"},
-        {"id": "PlantPack", "minVersion": "0.1.0"},
-        {"id": "WorldlyTooltip", "minVersion": "0.1.0"},
+        {"id": "Hunger", "minVersion": "1.0.0"},
+        {"id": "Thirst", "minVersion": "1.0.0"},
+        {"id": "EdibleSubstance", "minVersion": "1.0.0"},
+        {"id": "SimpleFarming", "minVersion": "1.0.0"},
+        {"id": "PlantPack", "minVersion": "1.0.0"},
+        {"id": "WorldlyTooltip", "minVersion": "1.0.0"},
         {"id": "EventualSkills", "minVersion": "1.0.0"},
         {"id": "ManualLaborEventualSkills", "minVersion": "1.0.0"},
-        {"id": "InGameHelp", "minVersion": "0.1.0"},
+        {"id": "InGameHelp", "minVersion": "1.0.0"},
         {"id": "WorkstationInGameHelp", "minVersion": "1.0.0"},
-        {"id": "Caves", "minVersion": "0.2.0"}
+        {"id": "Caves", "minVersion": "1.0.0"}
     ],
     "isGameplay" : "true",
     "defaultWorldGenerator" : "Core:FacetedPerlin"
