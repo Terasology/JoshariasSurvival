@@ -1,11 +1,11 @@
 {
   "parent": "engine:iconItem",
   "DisplayName": {
-    "name": "Blueberry"
+    "name": "Joshaberry"
   },
   "Item": {
-    "icon": "PlantPack:Items#BlueBerry",
-    "stackId": "Blueberry",
+    "icon": "PlantPack:Items#Blueberry",
+    "stackId": "Joshaberry",
     "consumedOnUse": true
   },
   "Food": {

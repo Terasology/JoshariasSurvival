@@ -1,14 +1,14 @@
 {
   "parent": "engine:iconItem",
   "DisplayName": {
-    "name": "Blueberry Seed"
+    "name": "Joshaberry Seed"
   },
   "Item": {
     "icon": "SimpleFarming:SimpleFarming#berryseed",
-    "stackId": "BlueberrySeed"
+    "stackId": "JoshaberrySeed"
   },
   "PlantDefinition": {
-    "plantName": "Blueberry Bush",
+    "plantName": "Joshaberry Bush",
     "growthStages": {
       "SimpleFarming:BerryBush:Engine:Halfblock": {
         "maxRandom": 300000,
@@ -22,7 +22,7 @@
         "maxRandom": 300000,
         "fixed": 300000
       },
-      "JoshariasSurvival:BlueberryBushFull": {
+      "JoshariasSurvival:JoshaberryBushFull": {
         "maxRandom": 600000,
         "fixed": 300000
       }

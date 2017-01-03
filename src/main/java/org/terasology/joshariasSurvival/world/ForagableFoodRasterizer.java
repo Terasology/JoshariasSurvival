@@ -40,8 +40,8 @@ public class ForagableFoodRasterizer implements WorldRasterizerPlugin {
     public void initialize() {
         blockManager = CoreRegistry.get(BlockManager.class);
 
-        foragableFood.put(ForagableFoodType.BLUEBERRY, ImmutableList.<Block>of(
-                blockManager.getBlock("JoshariasSurvival:BlueberryBushFull")));
+        foragableFood.put(ForagableFoodType.JOSHABERRY, ImmutableList.<Block>of(
+                blockManager.getBlock("JoshariasSurvival:JoshaberryBushFull")));
         foragableFood.put(ForagableFoodType.ROCK, ImmutableList.<Block>of(
                 blockManager.getBlockFamily("JoshariasSurvival:Rock").getArchetypeBlock()));
     }

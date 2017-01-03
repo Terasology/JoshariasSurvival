@@ -1,0 +1,8 @@
+{
+  "basedOn": "SimpleFarming:BerryBush",
+  "displayName": "Joshaberry Bush",
+  "entity": {
+    "prefab": "JoshaberryBushFull"
+  },
+  "tile": "joshaberrybushfull"
+}
