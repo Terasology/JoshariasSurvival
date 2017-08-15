@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 MovingBlocks
+ * Copyright 2017 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import org.terasology.assets.ResourceUrn;
 import org.terasology.entitySystem.prefab.Prefab;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterSystem;
-import org.terasology.inGameHelp.components.ItemHelpComponent;
+import org.terasology.inGameHelpAPI.components.ItemHelpComponent;
 import org.terasology.logic.console.commandSystem.annotations.Command;
 import org.terasology.network.NetworkSystem;
 import org.terasology.registry.In;
@@ -52,7 +52,7 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
     @In
     private NetworkSystem networkSystem;
 
-    @Command(shortDescription = "")
+    @Command(shortDescription = "Logs item without an output process")
     public String logItemsWithoutOutputProcess() {
         logger.info("--- logging items without an output process");
 
@@ -101,7 +101,7 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
         return "Logged as info all items without assembly processes defined";
     }
 
-    @Command(shortDescription = "")
+    @Command(shortDescription = "Logs item crafting complexity")
     public String logItemCraftingComplexity() {
         logger.info("--- logging item crafting complexity");
 
