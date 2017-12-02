@@ -1,5 +1,5 @@
 {
-  "basedOn": "SimpleFarming:BerryBush",
+  "basedOn": "AdditionalFruits:BaseBush",
   "displayName": "Joshaberry Bush",
   "entity": {
     "prefab": "JoshaberryBushFull"

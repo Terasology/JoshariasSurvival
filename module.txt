@@ -13,6 +13,7 @@
         {"id": "EdibleSubstance", "minVersion": "1.0.0"},
         {"id": "SimpleFarming", "minVersion": "2.0.0"},
         {"id": "PlantPack", "minVersion": "1.0.0"},
+        {"id": "AdditionalFruits", "minVersion": "0.1.0"},
         {"id": "WorldlyTooltip", "minVersion": "1.0.0"},
         {"id": "EventualSkills", "minVersion": "1.0.0"},
         {"id": "ManualLaborEventualSkills", "minVersion": "1.0.0"},
