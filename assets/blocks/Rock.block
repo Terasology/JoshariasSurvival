@@ -7,5 +7,5 @@
   "supportRequired": true,
   "penetrable": true,
   "shadowCasting": false,
-  "rotation": "symmetric"
+  "family": "symmetric"
 }
