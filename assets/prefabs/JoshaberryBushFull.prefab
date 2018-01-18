@@ -2,8 +2,25 @@
   "PlantProduceCreation": {
     "producePrefab": "Joshaberry"
   },
-  "UnGrowPlantOnHarvest": {},
-  "PlantDefinition": {
-    "seedPrefab": "JoshaberrySeed"
-  }
+  "BushDefinition": {
+      "produce": "JoshariasSurvival:Joshaberry",
+      "seed": "JoshariasSurvival:JoshaberrySeed",
+      "currentStage": 3,
+      "growthStages": {
+        "JoshariasSurvival:BerryBush:Engine:Halfblock": {
+          "minTime": 300000,
+          "maxTime": 450000
+        },
+        "JoshariasSurvival:BerryBush": {
+          "minTime": 300000,
+          "maxTime": 450000
+        },
+        "JoshariasSurvival:MatureBerryBush": {
+          "minTime": 300000,
+          "maxTime": 450000
+        },
+        "JoshariasSurvival:JoshaberryBushFull": {
+        }
+      }
+    }
 }
