@@ -19,8 +19,10 @@
         {"id": "ManualLaborEventualSkills", "minVersion": "1.0.0"},
         {"id": "InGameHelp", "minVersion": "1.0.0"},
         {"id": "WorkstationInGameHelp", "minVersion": "1.0.0"},
-        {"id": "Caves", "minVersion": "1.0.0"}
+        {"id": "Caves", "minVersion": "1.0.0"},
+        {"id": "OreGeneration", "minVersion": "1.0.0"}
     ],
-    "isGameplay" : "true",
+    "isGameplay" : true,
+    "isWorld": true,
     "defaultWorldGenerator" : "Core:FacetedPerlin"
 }
