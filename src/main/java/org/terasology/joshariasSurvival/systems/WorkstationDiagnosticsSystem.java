@@ -22,7 +22,6 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.terasology.utilities.Assets;
 import org.terasology.assets.ResourceUrn;
 import org.terasology.entitySystem.prefab.Prefab;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
@@ -31,15 +30,18 @@ import org.terasology.inGameHelpAPI.components.ItemHelpComponent;
 import org.terasology.logic.console.commandSystem.annotations.Command;
 import org.terasology.network.NetworkSystem;
 import org.terasology.registry.In;
+import org.terasology.utilities.Assets;
 import org.terasology.workstation.component.WorkstationComponent;
 import org.terasology.workstation.process.DescribeProcess;
 import org.terasology.workstation.process.ProcessPartDescription;
 import org.terasology.workstation.process.WorkstationProcess;
 import org.terasology.workstation.system.WorkstationRegistry;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -84,9 +86,7 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
         List<ResourceUrn> helpItems = Assets.list(Prefab.class).stream()
                 .filter(x -> Assets.get(x, Prefab.class).get().hasComponent(ItemHelpComponent.class))
                 .collect(Collectors.toList());
-        for (ResourceUrn helpItem : helpItems) {
-            knownInputs.add(helpItem);
-        }
+        knownInputs.addAll(helpItems);
 
         int count = 0;
         for (ResourceUrn input : knownInputs) {
@@ -118,8 +118,8 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
                 DescribeProcess describeProcess = (DescribeProcess) process;
 
                 List<ResourceUrn> inputs = describeProcess.getInputDescriptions().stream()
-                        .map(x -> x.getResourceUrn())
-                        .filter(x -> x != null)
+                        .map(ProcessPartDescription::getResourceUrn)
+                        .filter(Objects::nonNull)
                         .collect(Collectors.toList());
 
                 for (ProcessPartDescription description : describeProcess.getOutputDescriptions()) {
@@ -177,7 +177,7 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
 
         alreadyVisited.add(input);
 
-        for (ResourceUrn childInput : relatedInputs.get(input).stream().flatMap(x -> x.stream()).collect(Collectors.toList())) {
+        for (ResourceUrn childInput : relatedInputs.get(input).stream().flatMap(Collection::stream).collect(Collectors.toList())) {
             depth = Math.max(depth, getMaxDepth(childInput, relatedInputs, alreadyVisited));
         }
 
@@ -207,7 +207,6 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
 
     @Override
     public void postBegin() {
-        super.postBegin();
         // only do this in headless mode to avoid bothering too many
         if (networkSystem.getMode().isAuthority() && !networkSystem.getMode().hasLocalClient()) {
             logItemsWithoutOutputProcess();
