@@ -1,8 +1,5 @@
 JoshariasSurvival
 =================
 
-Survival a la Josharias
-
-##Fetch all with gradle
-
-```gradlew fetchModuleCustomOreGen fetchModuleOreGeneration fetchModuleStructuralResources fetchModuleFluid fetchModuleWorkstation fetchModuleItemRendering fetchModulePotentialEnergyDevices fetchModuleMachines fetchModuleDurability fetchModuleSubstanceMatters fetchModuleManualLabor fetchModuleIRLCorp fetchModuleHunger fetchModuleInGameHelp fetchModuleWorkstationInGameHelp fetchModuleMultiBlock fetchModuleWorldlyTooltip fetchModuleEventualSkills fetchModuleManualLaborEventualSkills fetchModulePlantPack fetchModuleSimpleFarming fetchModuleHunger fetchModuleThirst fetchModuleEdibleSubstances fetchModuleJoshariasSurvival```
+The most complex gameplay module there is to be seen (as of beginning of 
+2019)! Contains several full technology trees and lots of other stuff too.

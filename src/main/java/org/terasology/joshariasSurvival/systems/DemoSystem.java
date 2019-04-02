@@ -37,6 +37,8 @@ import org.terasology.world.block.items.BlockItemComponent;
 import org.terasology.world.block.items.BlockItemFactory;
 import org.terasology.world.block.items.OnBlockItemPlaced;
 
+import java.util.ArrayList;
+
 @RegisterSystem
 public class DemoSystem extends BaseComponentSystem {
     @In
@@ -54,9 +56,8 @@ public class DemoSystem extends BaseComponentSystem {
     public String jsStarterPack(@CommandParam(value = "module", required = false) String pack, @Sender EntityRef client) {
         BlockItemFactory blockFactory = new BlockItemFactory(entityManager);
         EntityRef player = client.getComponent(ClientComponent.class).character;
-
+        ArrayList<String> items = new ArrayList<>();
         if (pack == null || pack.equalsIgnoreCase("ManualLabor")) {
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("AssemblyTable"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
                     ExtendedInventoryManager.createItem(entityManager, "ManualLabor:CrudeHammer", 1),
                     blockFactory.newInstance(blockManager.getBlockFamily("Stone"), 32),
@@ -75,59 +76,55 @@ public class DemoSystem extends BaseComponentSystem {
                     ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Shovel", 1),
                     ExtendedInventoryManager.createItem(entityManager, "ManualLabor:MagnifyingGlass", 1)
             ));
-
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("ToolAssemblyTable"), 1));
-
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Firebox"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
                     ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Plank", 32)
             ));
-
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Hearth"), 1));
-
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Sifter"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
                     ExtendedInventoryManager.createItem(entityManager, "ManualLabor:WoodenBucket", 1)
             ));
-
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Campfire"), 1));
+            items.add("AssemblyTable");
+            items.add("ToolAssemblyTable");
+            items.add("Firebox");
+            items.add("Hearth");
+            items.add("Sifter");
+            items.add("Campfire");
         }
 
 
         if (pack == null || pack.equalsIgnoreCase("IRLCorp")) {
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Windmill"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
                     ExtendedInventoryManager.createItem(entityManager, "WindmillSail", 1),
                     blockFactory.newInstance(blockManager.getBlockFamily("WoodenAxle"), 32)
             ));
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("WoodenAxle"), 1));
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("WoodenGearBox"), 1));
-
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Axle"), 1));
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("GearBox"), 1));
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Engine"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
                     ExtendedInventoryManager.createItem(entityManager, "SubstanceMatters:MaterialItem#ManualLabor:Chunks|SubstanceMatters:Coal", 99),
                     blockFactory.newInstance(blockManager.getBlockFamily("Axle"), 32)
             ));
-
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Crusher"), 1));
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Sawmill"), 1));
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("Grinder"), 1));
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("FrictionHeater"), 1));
-
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("ConveyorBelt"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
                     blockFactory.newInstance(blockManager.getBlockFamily("ConveyorBelt"), 32)
             ));
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("ItemExtractor"), 1));
-
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("FluidPump"), 1));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
                     blockFactory.newInstance(blockManager.getBlockFamily("FluidPipe"), 32)
             ));
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("FluidPipe"), 1));
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily("FluidTank"), 1));
+            items.add("Windmill");
+            items.add("WoodenAxle");
+            items.add("WoodenGearBox");
+            items.add("Axle");
+            items.add("GearBox");
+            items.add("Engine");
+            items.add("Crusher");
+            items.add("Sawmill");
+            items.add("Grinder");
+            items.add("FrictionHeater");
+            items.add("ConveyorBelt");
+            items.add("ItemExtractor");
+            items.add("FluidPump");
+            items.add("FluidPipe");
+            items.add("FluidTank");
+        }
+        
+        for (String itemName : items) {
+            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily(itemName), 1));
         }
 
         return "You received the Josharias Survival " + pack + " starter pack";
