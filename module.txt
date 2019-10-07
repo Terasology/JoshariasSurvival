@@ -1,11 +1,12 @@
 {
     "id" : "JoshariasSurvival",
-    "version" : "1.0.1-SNAPSHOT",
+    "version" : "1.0.2-SNAPSHOT",
     "author" : "Josharias",
     "displayName" : "Josharias Survival",
     "description" : "Survival with an emphasis on technology",
     "dependencies" :
     [
+        {"id": "CoreBlocks", "minVersion": "1.0.0"},
         {"id": "ManualLabor", "minVersion": "1.0.0"},
         {"id": "IRLCorp", "minVersion": "1.0.0"},
         {"id": "Hunger", "minVersion": "1.0.0"},
