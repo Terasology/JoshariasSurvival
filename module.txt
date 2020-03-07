@@ -22,7 +22,7 @@
         {"id": "WorkstationInGameHelp", "minVersion": "1.0.0"},
         {"id": "Caves", "minVersion": "1.0.0"},
         {"id": "OreGeneration", "minVersion": "1.0.0"},
-        {"id": "BiomesAPI", "minVersion": "1.0.0"}
+        {"id": "BiomesAPI", "minVersion": "3.0.0"}
     ],
     "isGameplay" : true,
     "isWorld": true,
