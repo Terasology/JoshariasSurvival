@@ -133,7 +133,7 @@ public class DemoSystem extends BaseComponentSystem {
     private EntityRef createSupplyChest(EntityRef... items) {
         BlockItemFactory blockFactory = new BlockItemFactory(entityManager);
 
-        EntityRef chest = blockFactory.newInstance(blockManager.getBlockFamily("CoreBlocks:Chest"), 1);
+        EntityRef chest = blockFactory.newInstance(blockManager.getBlockFamily("CoreAdvancedAssets:Chest"), 1);
         chest.addComponent(new InventoryComponent(items.length));
 
         for (EntityRef item : items) {
@@ -155,7 +155,7 @@ public class DemoSystem extends BaseComponentSystem {
             BlockItemComponent blockItemComponent = item.getComponent(BlockItemComponent.class);
             if (blockItemComponent != null) {
                 Vector3i pos = new Vector3i(characterPos.x + itemsPlaced * 2 + 2, characterPos.y, characterPos.z);
-                if (blockItemComponent.blockFamily.getURI().equals(new BlockUri("CoreBlocks:Chest"))) {
+                if (blockItemComponent.blockFamily.getURI().equals(new BlockUri("CoreAdvancedAssets:Chest"))) {
                     pos = new Vector3i(pos.x - 2, pos.y, pos.z + 2);
                     supplyChestsPlaced++;
                 } else {
