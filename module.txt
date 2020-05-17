@@ -6,7 +6,7 @@
     "description": "Survival with an emphasis on technology",
     "dependencies": [
         { "id": "AdditionalFruits", "minVersion": "0.1.0" },
-        { "id": "BiomesAPI", "minVersion": "3.0.0" },
+        { "id": "BiomesAPI", "minVersion": "4.0.0" },
         { "id": "Caves", "minVersion": "1.0.0" },
         { "id": "CoreAdvancedAssets", "minVersion": "1.1.0" },
         { "id": "CoreWorlds", "minVersion": "1.0.0" },
