@@ -9,7 +9,7 @@
         { "id": "BiomesAPI", "minVersion": "4.0.0" },
         { "id": "Caves", "minVersion": "1.0.0" },
         { "id": "CoreAdvancedAssets", "minVersion": "1.1.0" },
-        { "id": "CoreWorlds", "minVersion": "1.0.0" },
+        { "id": "CoreWorlds", "minVersion": "1.1.0" },
         { "id": "EdibleSubstance", "minVersion": "1.0.0" },
         { "id": "EventualSkills", "minVersion": "1.0.0" },
         { "id": "Hunger", "minVersion": "1.0.0" },
