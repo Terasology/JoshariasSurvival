@@ -1,6 +1,6 @@
 {
     "id": "JoshariasSurvival",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "author": "Josharias",
     "displayName": "Josharias Survival",
     "description": "Survival with an emphasis on technology",
@@ -9,6 +9,7 @@
         { "id": "BiomesAPI", "minVersion": "4.0.0" },
         { "id": "Caves", "minVersion": "1.1.0" },
         { "id": "CoreAdvancedAssets", "minVersion": "1.1.0" },
+        { "id": "CoreRendering", "minVersion": "1.0.0" },
         { "id": "CoreWorlds", "minVersion": "1.1.0" },
         { "id": "EdibleSubstance", "minVersion": "1.0.0" },
         { "id": "EventualSkills", "minVersion": "1.0.0" },
