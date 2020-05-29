@@ -21,7 +21,7 @@
         { "id": "Machines", "minVersion": "1.2.0" },
         { "id": "ManualLabor", "minVersion": "1.3.0" },
         { "id": "ManualLaborEventualSkills", "minVersion": "1.0.0" },
-        { "id": "OreGeneration", "minVersion": "1.0.0" },
+        { "id": "OreGeneration", "minVersion": "2.0.0" },
         { "id": "PlantPack", "minVersion": "1.1.0" },
         { "id": "SimpleFarming", "minVersion": "2.1.0" },
         { "id": "Thirst", "minVersion": "1.0.0" },
