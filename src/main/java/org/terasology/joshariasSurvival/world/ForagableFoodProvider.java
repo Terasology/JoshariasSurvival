@@ -1,42 +1,29 @@
-/*
- * Copyright 2015 MovingBlocks
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright 2020 The Terasology Foundation
+// SPDX-License-Identifier: Apache-2.0
 package org.terasology.joshariasSurvival.world;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import org.terasology.biomesAPI.Biome;
-import org.terasology.core.world.CoreBiome;
-import org.terasology.core.world.generator.facetProviders.PositionFilters;
-import org.terasology.core.world.generator.facetProviders.SurfaceObjectProvider;
-import org.terasology.core.world.generator.facets.BiomeFacet;
-import org.terasology.entitySystem.Component;
+import org.terasology.coreworlds.CoreBiome;
+import org.terasology.coreworlds.generator.facetProviders.PositionFilters;
+import org.terasology.coreworlds.generator.facetProviders.SurfaceObjectProvider;
+import org.terasology.coreworlds.generator.facets.BiomeFacet;
+import org.terasology.engine.entitySystem.Component;
+import org.terasology.engine.utilities.procedural.Noise;
+import org.terasology.engine.utilities.procedural.WhiteNoise;
+import org.terasology.engine.world.generation.ConfigurableFacetProvider;
+import org.terasology.engine.world.generation.Facet;
+import org.terasology.engine.world.generation.FacetProviderPlugin;
+import org.terasology.engine.world.generation.GeneratingRegion;
+import org.terasology.engine.world.generation.Produces;
+import org.terasology.engine.world.generation.Requires;
+import org.terasology.engine.world.generation.facets.SeaLevelFacet;
+import org.terasology.engine.world.generation.facets.SurfaceHeightFacet;
+import org.terasology.engine.world.generator.plugin.RegisterPlugin;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.nui.properties.Range;
-import org.terasology.utilities.procedural.Noise;
-import org.terasology.utilities.procedural.WhiteNoise;
-import org.terasology.world.generation.ConfigurableFacetProvider;
-import org.terasology.world.generation.Facet;
-import org.terasology.world.generation.FacetProviderPlugin;
-import org.terasology.world.generation.GeneratingRegion;
-import org.terasology.world.generation.Produces;
-import org.terasology.world.generation.Requires;
-import org.terasology.world.generation.facets.SeaLevelFacet;
-import org.terasology.world.generation.facets.SurfaceHeightFacet;
-import org.terasology.world.generator.plugin.RegisterPlugin;
 
 import java.util.List;
 import java.util.Map;
@@ -51,15 +38,10 @@ import java.util.Map;
 })
 public class ForagableFoodProvider extends SurfaceObjectProvider<Biome, ForagableFoodType> implements ConfigurableFacetProvider, FacetProviderPlugin {
 
-    private Noise densityNoiseGen;
-
-    private ForagableFoodDensityConfiguration configuration = new ForagableFoodDensityConfiguration();
-
-    private Map<ForagableFoodType, Float> typeProbs = ImmutableMap.of(
+    private final Map<ForagableFoodType, Float> typeProbs = ImmutableMap.of(
             ForagableFoodType.JOSHABERRY, 0.005f,
             ForagableFoodType.ROCK, 0.2f);
-
-    private Map<Biome, Float> biomeProbs = ImmutableMap.<Biome, Float>builder()
+    private final Map<Biome, Float> biomeProbs = ImmutableMap.<Biome, Float>builder()
             .put(CoreBiome.FOREST, 0.3f)
             .put(CoreBiome.PLAINS, 0.2f)
             .put(CoreBiome.MOUNTAINS, 0.2f)
@@ -67,6 +49,8 @@ public class ForagableFoodProvider extends SurfaceObjectProvider<Biome, Foragabl
             .put(CoreBiome.BEACH, 0.001f)
             .put(CoreBiome.OCEAN, 0f)
             .put(CoreBiome.DESERT, 0.001f).build();
+    private Noise densityNoiseGen;
+    private ForagableFoodDensityConfiguration configuration = new ForagableFoodDensityConfiguration();
 
     public ForagableFoodProvider() {
 
@@ -93,7 +77,8 @@ public class ForagableFoodProvider extends SurfaceObjectProvider<Biome, Foragabl
         BiomeFacet biomeFacet = region.getRegionFacet(BiomeFacet.class);
         SeaLevelFacet seaLevel = region.getRegionFacet(SeaLevelFacet.class);
 
-        ForagableFoodFacet facet = new ForagableFoodFacet(region.getRegion(), region.getBorderForFacet(ForagableFoodFacet.class));
+        ForagableFoodFacet facet = new ForagableFoodFacet(region.getRegion(),
+                region.getBorderForFacet(ForagableFoodFacet.class));
 
         List<Predicate<Vector3i>> filters = Lists.newArrayList();
 
@@ -121,8 +106,9 @@ public class ForagableFoodProvider extends SurfaceObjectProvider<Biome, Foragabl
     }
 
     private static class ForagableFoodDensityConfiguration implements Component {
-        @Range(min = 0, max = 1.0f, increment = 0.05f, precision = 2, description = "Define the overall amount of foragable food")
-        private float density = 0.4f;
+        @Range(min = 0, max = 1.0f, increment = 0.05f, precision = 2, description = "Define the overall amount of " +
+                "foragable food")
+        private final float density = 0.4f;
 
     }
 

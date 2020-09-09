@@ -1,41 +1,28 @@
-/*
- * Copyright 2015 MovingBlocks
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright 2020 The Terasology Foundation
+// SPDX-License-Identifier: Apache-2.0
 package org.terasology.joshariasSurvival.systems;
 
-import org.terasology.entitySystem.entity.EntityManager;
-import org.terasology.entitySystem.entity.EntityRef;
-import org.terasology.entitySystem.systems.BaseComponentSystem;
-import org.terasology.entitySystem.systems.RegisterSystem;
-import org.terasology.logic.console.commandSystem.annotations.Command;
-import org.terasology.logic.console.commandSystem.annotations.CommandParam;
-import org.terasology.logic.console.commandSystem.annotations.Sender;
-import org.terasology.logic.inventory.InventoryComponent;
-import org.terasology.logic.inventory.InventoryManager;
-import org.terasology.logic.location.LocationComponent;
+import org.terasology.engine.entitySystem.entity.EntityManager;
+import org.terasology.engine.entitySystem.entity.EntityRef;
+import org.terasology.engine.entitySystem.systems.BaseComponentSystem;
+import org.terasology.engine.entitySystem.systems.RegisterSystem;
+import org.terasology.engine.logic.console.commandSystem.annotations.Command;
+import org.terasology.engine.logic.console.commandSystem.annotations.CommandParam;
+import org.terasology.engine.logic.console.commandSystem.annotations.Sender;
+import org.terasology.engine.logic.location.LocationComponent;
+import org.terasology.engine.network.ClientComponent;
+import org.terasology.engine.registry.In;
+import org.terasology.engine.world.BlockEntityRegistry;
+import org.terasology.engine.world.WorldProvider;
+import org.terasology.engine.world.block.BlockManager;
+import org.terasology.engine.world.block.BlockUri;
+import org.terasology.engine.world.block.items.BlockItemComponent;
+import org.terasology.engine.world.block.items.BlockItemFactory;
+import org.terasology.engine.world.block.items.OnBlockItemPlaced;
+import org.terasology.inventory.logic.InventoryComponent;
+import org.terasology.inventory.logic.InventoryManager;
 import org.terasology.machines.ExtendedInventoryManager;
 import org.terasology.math.geom.Vector3i;
-import org.terasology.network.ClientComponent;
-import org.terasology.registry.In;
-import org.terasology.world.BlockEntityRegistry;
-import org.terasology.world.WorldProvider;
-import org.terasology.world.block.BlockManager;
-import org.terasology.world.block.BlockUri;
-import org.terasology.world.block.items.BlockItemComponent;
-import org.terasology.world.block.items.BlockItemFactory;
-import org.terasology.world.block.items.OnBlockItemPlaced;
 
 import java.util.ArrayList;
 
@@ -53,7 +40,8 @@ public class DemoSystem extends BaseComponentSystem {
     BlockEntityRegistry blockEntityRegistry;
 
     @Command(shortDescription = "Gives items to demonstrate Josharias Survival", runOnServer = true)
-    public String jsStarterPack(@CommandParam(value = "module", required = false) String pack, @Sender EntityRef client) {
+    public String jsStarterPack(@CommandParam(value = "module", required = false) String pack,
+                                @Sender EntityRef client) {
         BlockItemFactory blockFactory = new BlockItemFactory(entityManager);
         EntityRef player = client.getComponent(ClientComponent.class).character;
         ArrayList<String> items = new ArrayList<>();
@@ -97,7 +85,8 @@ public class DemoSystem extends BaseComponentSystem {
                     blockFactory.newInstance(blockManager.getBlockFamily("WoodenAxle"), 32)
             ));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
-                    ExtendedInventoryManager.createItem(entityManager, "SubstanceMatters:MaterialItem#ManualLabor:Chunks|SubstanceMatters:Coal", 99),
+                    ExtendedInventoryManager.createItem(entityManager, "SubstanceMatters:MaterialItem#ManualLabor" +
+                            ":Chunks|SubstanceMatters:Coal", 99),
                     blockFactory.newInstance(blockManager.getBlockFamily("Axle"), 32)
             ));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
@@ -122,9 +111,10 @@ public class DemoSystem extends BaseComponentSystem {
             items.add("FluidPipe");
             items.add("FluidTank");
         }
-        
+
         for (String itemName : items) {
-            inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily(itemName), 1));
+            inventoryManager.giveItem(player, EntityRef.NULL,
+                    blockFactory.newInstance(blockManager.getBlockFamily(itemName), 1));
         }
 
         return "You received the Josharias Survival " + pack + " starter pack";

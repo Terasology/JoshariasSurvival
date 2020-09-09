@@ -1,31 +1,18 @@
-/*
- * Copyright 2015 MovingBlocks
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright 2020 The Terasology Foundation
+// SPDX-License-Identifier: Apache-2.0
 package org.terasology.joshariasSurvival.world;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
+import org.terasology.engine.registry.CoreRegistry;
+import org.terasology.engine.utilities.procedural.WhiteNoise;
+import org.terasology.engine.world.block.Block;
+import org.terasology.engine.world.block.BlockManager;
+import org.terasology.engine.world.chunks.CoreChunk;
+import org.terasology.engine.world.generation.Region;
+import org.terasology.engine.world.generation.WorldRasterizerPlugin;
+import org.terasology.engine.world.generator.plugin.RegisterPlugin;
 import org.terasology.math.geom.BaseVector3i;
-import org.terasology.registry.CoreRegistry;
-import org.terasology.utilities.procedural.WhiteNoise;
-import org.terasology.world.block.Block;
-import org.terasology.world.block.BlockManager;
-import org.terasology.world.chunks.CoreChunk;
-import org.terasology.world.generation.Region;
-import org.terasology.world.generation.WorldRasterizerPlugin;
-import org.terasology.world.generator.plugin.RegisterPlugin;
 
 import java.util.List;
 import java.util.Map;
@@ -40,9 +27,9 @@ public class ForagableFoodRasterizer implements WorldRasterizerPlugin {
     public void initialize() {
         blockManager = CoreRegistry.get(BlockManager.class);
 
-        foragableFood.put(ForagableFoodType.JOSHABERRY, ImmutableList.<Block>of(
+        foragableFood.put(ForagableFoodType.JOSHABERRY, ImmutableList.of(
                 blockManager.getBlock("JoshariasSurvival:JoshaberryBushFull")));
-        foragableFood.put(ForagableFoodType.ROCK, ImmutableList.<Block>of(
+        foragableFood.put(ForagableFoodType.ROCK, ImmutableList.of(
                 blockManager.getBlockFamily("JoshariasSurvival:Rock").getArchetypeBlock()));
     }
 
