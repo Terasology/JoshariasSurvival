@@ -30,6 +30,7 @@ import org.terasology.utilities.procedural.Noise;
 import org.terasology.utilities.procedural.WhiteNoise;
 import org.terasology.world.generation.ConfigurableFacetProvider;
 import org.terasology.world.generation.Facet;
+import org.terasology.world.generation.FacetBorder;
 import org.terasology.world.generation.FacetProviderPlugin;
 import org.terasology.world.generation.GeneratingRegion;
 import org.terasology.world.generation.Produces;
@@ -46,7 +47,7 @@ import java.util.Map;
 @Produces(ForagableFoodFacet.class)
 @Requires({
         @Facet(SeaLevelFacet.class),
-        @Facet(SurfacesFacet.class),
+        @Facet(value = SurfacesFacet.class, border = @FacetBorder(bottom = 1)),
         @Facet(BiomeFacet.class)
 })
 public class ForagableFoodProvider extends SurfaceObjectProvider<Biome, ForagableFoodType> implements ConfigurableFacetProvider, FacetProviderPlugin {
