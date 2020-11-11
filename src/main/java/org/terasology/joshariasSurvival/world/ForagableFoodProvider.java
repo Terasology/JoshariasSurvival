@@ -35,7 +35,7 @@ import org.terasology.world.generation.GeneratingRegion;
 import org.terasology.world.generation.Produces;
 import org.terasology.world.generation.Requires;
 import org.terasology.world.generation.facets.SeaLevelFacet;
-import org.terasology.world.generation.facets.SurfaceHeightFacet;
+import org.terasology.world.generation.facets.SurfacesFacet;
 import org.terasology.world.generator.plugin.RegisterPlugin;
 
 import java.util.List;
@@ -46,7 +46,7 @@ import java.util.Map;
 @Produces(ForagableFoodFacet.class)
 @Requires({
         @Facet(SeaLevelFacet.class),
-        @Facet(SurfaceHeightFacet.class),
+        @Facet(SurfacesFacet.class),
         @Facet(BiomeFacet.class)
 })
 public class ForagableFoodProvider extends SurfaceObjectProvider<Biome, ForagableFoodType> implements ConfigurableFacetProvider, FacetProviderPlugin {
@@ -89,7 +89,7 @@ public class ForagableFoodProvider extends SurfaceObjectProvider<Biome, Foragabl
 
     @Override
     public void process(GeneratingRegion region) {
-        SurfaceHeightFacet surface = region.getRegionFacet(SurfaceHeightFacet.class);
+        SurfacesFacet surface = region.getRegionFacet(SurfacesFacet.class);
         BiomeFacet biomeFacet = region.getRegionFacet(BiomeFacet.class);
         SeaLevelFacet seaLevel = region.getRegionFacet(SeaLevelFacet.class);
 
