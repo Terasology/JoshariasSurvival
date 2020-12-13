@@ -17,6 +17,7 @@ package org.terasology.joshariasSurvival.world;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
+import org.joml.Vector3ic;
 import org.terasology.math.geom.BaseVector3i;
 import org.terasology.registry.CoreRegistry;
 import org.terasology.utilities.procedural.WhiteNoise;
@@ -53,15 +54,15 @@ public class ForagableFoodRasterizer implements WorldRasterizerPlugin {
 
         WhiteNoise noise = new WhiteNoise(chunk.getPosition().hashCode());
 
-        Map<BaseVector3i, ForagableFoodType> entries = facet.getRelativeEntries();
-        for (BaseVector3i pos : entries.keySet()) {
+        Map<Vector3ic, ForagableFoodType> entries = facet.getRelativeEntries();
+        for (Vector3ic pos : entries.keySet()) {
 
             // check if some other rasterizer has already placed something here
             if (chunk.getBlock(pos).equals(air)) {
 
                 ForagableFoodType type = entries.get(pos);
                 List<Block> list = foragableFood.get(type);
-                int blockIdx = Math.abs(noise.intNoise(pos.getX(), pos.getY(), pos.getZ())) % list.size();
+                int blockIdx = Math.abs(noise.intNoise(pos.x(), pos.y(), pos.z())) % list.size();
                 Block block = list.get(blockIdx);
                 chunk.setBlock(pos, block);
             }
