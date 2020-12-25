@@ -1,6 +1,6 @@
 {
     "id": "JoshariasSurvival",
-    "version": "1.1.0",
+    "version": "1.1.0-SNAPSHOT",
     "author": "Josharias",
     "displayName": "Josharias Survival",
     "description": "Survival with an emphasis on technology",
