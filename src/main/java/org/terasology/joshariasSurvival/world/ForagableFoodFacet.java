@@ -15,7 +15,7 @@
  */
 package org.terasology.joshariasSurvival.world;
 
-import org.terasology.math.Region3i;
+import org.terasology.world.block.BlockRegion;
 import org.terasology.world.generation.Border3D;
 import org.terasology.world.generation.facets.base.SparseObjectFacet3D;
 
@@ -24,7 +24,7 @@ import org.terasology.world.generation.facets.base.SparseObjectFacet3D;
  */
 public class ForagableFoodFacet extends SparseObjectFacet3D<ForagableFoodType> {
 
-    public ForagableFoodFacet(Region3i targetRegion, Border3D border) {
+    public ForagableFoodFacet(BlockRegion targetRegion, Border3D border) {
         super(targetRegion, border);
     }
 }
