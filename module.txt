@@ -12,7 +12,7 @@
         { "id": "ChrisVolume2OST", "minVersion": "1.0.0" },
         { "id": "CoreAdvancedAssets", "minVersion": "1.1.0" },
         { "id": "CoreRendering", "minVersion": "1.0.0" },
-        { "id": "CoreWorlds", "minVersion": "1.1.0" },
+        { "id": "CoreWorlds", "minVersion": "1.1.0", "minVersion": "3.0.0" },
         { "id": "EdibleSubstance", "minVersion": "1.0.0" },
         { "id": "EventualSkills", "minVersion": "1.0.0" },
         { "id": "FlowingLiquids", "minVersion": "1.3.0" },
@@ -34,5 +34,5 @@
     ],
     "isGameplay": true,
     "isWorld": true,
-    "defaultWorldGenerator": "CoreWorlds:FacetedPerlin"
+    "defaultWorldGenerator": "CoreWorlds:FacetedSimplex"
 }
