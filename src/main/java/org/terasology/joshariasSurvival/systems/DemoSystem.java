@@ -15,6 +15,9 @@
  */
 package org.terasology.joshariasSurvival.systems;
 
+import org.joml.RoundingMode;
+import org.joml.Vector3f;
+import org.joml.Vector3i;
 import org.terasology.entitySystem.entity.EntityManager;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
@@ -26,7 +29,6 @@ import org.terasology.logic.inventory.InventoryComponent;
 import org.terasology.logic.inventory.InventoryManager;
 import org.terasology.logic.location.LocationComponent;
 import org.terasology.machines.ExtendedInventoryManager;
-import org.terasology.math.geom.Vector3i;
 import org.terasology.network.ClientComponent;
 import org.terasology.registry.In;
 import org.terasology.world.BlockEntityRegistry;
@@ -59,28 +61,28 @@ public class DemoSystem extends BaseComponentSystem {
         ArrayList<String> items = new ArrayList<>();
         if (pack == null || pack.equalsIgnoreCase("ManualLabor")) {
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:CrudeHammer", 1),
-                    blockFactory.newInstance(blockManager.getBlockFamily("Stone"), 32),
-                    blockFactory.newInstance(blockManager.getBlockFamily("IronOre"), 32),
-                    blockFactory.newInstance(blockManager.getBlockFamily("CoalOre"), 32),
-                    blockFactory.newInstance(blockManager.getBlockFamily("OakTrunk"), 32),
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Mallet", 1),
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:MetalFile", 1),
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Saw", 1),
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Pliers", 1),
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Screwdriver", 1),
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Wrench", 1),
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:SledgeHammer", 1),
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Axe", 1),
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Pickaxe", 1),
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Shovel", 1),
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:MagnifyingGlass", 1)
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:CrudeHammer", 1),
+                blockFactory.newInstance(blockManager.getBlockFamily("Stone"), 32),
+                blockFactory.newInstance(blockManager.getBlockFamily("IronOre"), 32),
+                blockFactory.newInstance(blockManager.getBlockFamily("CoalOre"), 32),
+                blockFactory.newInstance(blockManager.getBlockFamily("OakTrunk"), 32),
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Mallet", 1),
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:MetalFile", 1),
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Saw", 1),
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Pliers", 1),
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Screwdriver", 1),
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Wrench", 1),
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:SledgeHammer", 1),
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Axe", 1),
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Pickaxe", 1),
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Shovel", 1),
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:MagnifyingGlass", 1)
             ));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Plank", 32)
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:Plank", 32)
             ));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
-                    ExtendedInventoryManager.createItem(entityManager, "ManualLabor:WoodenBucket", 1)
+                ExtendedInventoryManager.createItem(entityManager, "ManualLabor:WoodenBucket", 1)
             ));
             items.add("AssemblyTable");
             items.add("ToolAssemblyTable");
@@ -93,18 +95,18 @@ public class DemoSystem extends BaseComponentSystem {
 
         if (pack == null || pack.equalsIgnoreCase("IRLCorp")) {
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
-                    ExtendedInventoryManager.createItem(entityManager, "WindmillSail", 1),
-                    blockFactory.newInstance(blockManager.getBlockFamily("WoodenAxle"), 32)
+                ExtendedInventoryManager.createItem(entityManager, "WindmillSail", 1),
+                blockFactory.newInstance(blockManager.getBlockFamily("WoodenAxle"), 32)
             ));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
-                    ExtendedInventoryManager.createItem(entityManager, "SubstanceMatters:MaterialItem#ManualLabor:Chunks|SubstanceMatters:Coal", 99),
-                    blockFactory.newInstance(blockManager.getBlockFamily("Axle"), 32)
+                ExtendedInventoryManager.createItem(entityManager, "SubstanceMatters:MaterialItem#ManualLabor:Chunks|SubstanceMatters:Coal", 99),
+                blockFactory.newInstance(blockManager.getBlockFamily("Axle"), 32)
             ));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
-                    blockFactory.newInstance(blockManager.getBlockFamily("ConveyorBelt"), 32)
+                blockFactory.newInstance(blockManager.getBlockFamily("ConveyorBelt"), 32)
             ));
             inventoryManager.giveItem(player, EntityRef.NULL, createSupplyChest(
-                    blockFactory.newInstance(blockManager.getBlockFamily("FluidPipe"), 32)
+                blockFactory.newInstance(blockManager.getBlockFamily("FluidPipe"), 32)
             ));
             items.add("Windmill");
             items.add("WoodenAxle");
@@ -122,7 +124,7 @@ public class DemoSystem extends BaseComponentSystem {
             items.add("FluidPipe");
             items.add("FluidTank");
         }
-        
+
         for (String itemName : items) {
             inventoryManager.giveItem(player, EntityRef.NULL, blockFactory.newInstance(blockManager.getBlockFamily(itemName), 1));
         }
@@ -147,7 +149,8 @@ public class DemoSystem extends BaseComponentSystem {
     public String jsPlaceInventory(@Sender EntityRef client) {
         EntityRef character = client.getComponent(ClientComponent.class).character;
         LocationComponent locationComponent = character.getComponent(LocationComponent.class);
-        Vector3i characterPos = new Vector3i(locationComponent.getWorldPosition(), 0.5f);
+        Vector3i characterPos = new Vector3i(locationComponent.getWorldPosition(new Vector3f()).add(.5f, .5f, .5f),
+            RoundingMode.FLOOR);
 
         int itemsPlaced = 0;
         int supplyChestsPlaced = 0;
@@ -163,7 +166,7 @@ public class DemoSystem extends BaseComponentSystem {
                 }
 
                 worldProvider.setBlock(pos, blockItemComponent.blockFamily.getArchetypeBlock());
-                item.send(new OnBlockItemPlaced(pos, blockEntityRegistry.getBlockEntityAt(pos)));
+                item.send(new OnBlockItemPlaced(pos, blockEntityRegistry.getBlockEntityAt(pos), EntityRef.NULL));
                 item.destroy();
             }
         }
