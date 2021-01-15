@@ -18,7 +18,6 @@ package org.terasology.joshariasSurvival.world;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import org.joml.Vector3ic;
-import org.terasology.math.geom.BaseVector3i;
 import org.terasology.registry.CoreRegistry;
 import org.terasology.utilities.procedural.WhiteNoise;
 import org.terasology.world.block.Block;
