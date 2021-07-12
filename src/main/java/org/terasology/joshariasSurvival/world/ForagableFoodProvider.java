@@ -112,6 +112,10 @@ public class ForagableFoodProvider extends SurfaceObjectProvider<Biome, Foragabl
         @Range(min = 0, max = 1.0f, increment = 0.05f, precision = 2, description = "Define the overall amount of foragable food")
         private float density = 0.4f;
 
+        @Override
+        public void copy(ForagableFoodDensityConfiguration other) {
+            this.density = other.density;
+        }
     }
 
 }
