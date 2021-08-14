@@ -113,7 +113,7 @@ public class ForagableFoodProvider extends SurfaceObjectProvider<Biome, Foragabl
         private float density = 0.4f;
 
         @Override
-        public void copy(ForagableFoodDensityConfiguration other) {
+        public void copyFrom(ForagableFoodDensityConfiguration other) {
             this.density = other.density;
         }
     }
