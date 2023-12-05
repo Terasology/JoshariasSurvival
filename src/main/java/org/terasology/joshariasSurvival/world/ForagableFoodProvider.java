@@ -108,9 +108,9 @@ public class ForagableFoodProvider extends SurfaceObjectProvider<Biome, Foragabl
         this.configuration = (ForagableFoodDensityConfiguration) configuration;
     }
 
-    private static class ForagableFoodDensityConfiguration implements Component<ForagableFoodDensityConfiguration> {
+    public static class ForagableFoodDensityConfiguration implements Component<ForagableFoodDensityConfiguration> {
         @Range(min = 0, max = 1.0f, increment = 0.05f, precision = 2, description = "Define the overall amount of foragable food")
-        private float density = 0.4f;
+        public float density = 0.4f;
 
         @Override
         public void copyFrom(ForagableFoodDensityConfiguration other) {
