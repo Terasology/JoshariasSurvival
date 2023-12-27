@@ -79,12 +79,12 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
         int count = 0;
         for (ResourceUrn input : knownInputs) {
             if (!knownOutputs.contains(input)) {
-                logger.info(input.toString() + " does not have a known output process");
+                logger.info("{} does not have a known output process", input);
                 count++;
             }
         }
 
-        logger.info("--- finished logging items without an output process (" + count + " items)");
+        logger.info("--- finished logging items without an output process ({} items)", count);
 
         return "Logged as info all items without assembly processes defined";
     }
@@ -149,7 +149,7 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
         }
 
         for (Map.Entry<ResourceUrn, Integer> entry : maxDepthMap.entrySet()) {
-            logger.info(entry.getKey().toString() + " MaxDepth=" + entry.getValue() + " MaxComplexity=" + maxComplexityMap.get(entry.getKey()));
+            logger.info("{} MaxDepth={} MaxComplexity={}", entry.getKey().toString(), entry.getValue(), maxComplexityMap.get(entry.getKey()));
         }
 
         logger.info("--- finished logging item crafting complexity");
