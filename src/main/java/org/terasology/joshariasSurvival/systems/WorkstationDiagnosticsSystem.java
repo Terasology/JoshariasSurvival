@@ -149,7 +149,7 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
         }
 
         for (Map.Entry<ResourceUrn, Integer> entry : maxDepthMap.entrySet()) {
-            logger.info("{} MaxDepth={} MaxComplexity={}", entry.getKey().toString(), entry.getValue(), maxComplexityMap.get(entry.getKey()));
+            logger.info("{} MaxDepth={} MaxComplexity={}", entry.getKey(), entry.getValue(), maxComplexityMap.get(entry.getKey()));
         }
 
         logger.info("--- finished logging item crafting complexity");
