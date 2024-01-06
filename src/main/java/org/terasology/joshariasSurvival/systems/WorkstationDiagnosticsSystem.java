@@ -1,18 +1,6 @@
-/*
- * Copyright 2017 MovingBlocks
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright 2015 The Terasology Foundation
+// SPDX-License-Identifier: Apache-2.0
+
 package org.terasology.joshariasSurvival.systems;
 
 import com.google.common.collect.HashMultimap;
@@ -91,12 +79,12 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
         int count = 0;
         for (ResourceUrn input : knownInputs) {
             if (!knownOutputs.contains(input)) {
-                logger.info(input.toString() + " does not have a known output process");
+                logger.info("{} does not have a known output process", input);
                 count++;
             }
         }
 
-        logger.info("--- finished logging items without an output process (" + count + " items)");
+        logger.info("--- finished logging items without an output process ({} items)", count);
 
         return "Logged as info all items without assembly processes defined";
     }
@@ -161,7 +149,7 @@ public class WorkstationDiagnosticsSystem extends BaseComponentSystem {
         }
 
         for (Map.Entry<ResourceUrn, Integer> entry : maxDepthMap.entrySet()) {
-            logger.info(entry.getKey().toString() + " MaxDepth=" + entry.getValue() + " MaxComplexity=" + maxComplexityMap.get(entry.getKey()));
+            logger.info("{} MaxDepth={} MaxComplexity={}", entry.getKey(), entry.getValue(), maxComplexityMap.get(entry.getKey()));
         }
 
         logger.info("--- finished logging item crafting complexity");
